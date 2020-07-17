@@ -15,8 +15,9 @@ class CreateUserReviewsTable extends Migration
     {
         Schema::create('user_reviews', function (Blueprint $table) {
             $table->integerIncrements('id');
-            $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_mentor');
+            $table->unsignedBigInteger('id_user')->index();
+            $table->foreignId('id_mentor');
+            $table->foreignId('id_project');
             $table->char('score',1)->comment('A: Sangat Bagus', 'B: Bagus', 'C: Cukup', 'D: Kurang', 'E: Sangat Kurang')->default(false);
             $table->text('comment');
             $table->timestamps();

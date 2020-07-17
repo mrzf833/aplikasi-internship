@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'fullname', 'email', 'password','id_role','flag'
     ];
 
     /**
@@ -25,15 +25,34 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function user_reviews(){
+        return $this->hasMany('App\models\UserReview','id_user','id');
+    }
+
+    public function mentor_reviews(){
+        return $this->hasMany('App\models\UserReview','id_mentor','id');
+    }
+
+    public function instructor_profile(){
+        return $this->hasMany('App\models\UserProfile','id_instructor','id');
+    }
+
+    public function user_profiles(){
+        return $this->hasMany('App\models\UserProfile','id_user','id');
+    }
+
+    public function role_users(){
+        return $this->belongsTo('App\models\RoleUser','id_role','id');
+    }
+
+    public function user_mentor_profile(){
+        return $this->hasMany('App\models\UserReview','id_mentor','id')->join('users','user_reviews.id_user','=','users.id')->select('*','user_reviews.id as id')->join('user_profiles','users.id','=','user_profiles.id_user')->join('users as user_instructor','user_profiles.id_instructor','=','user_instructor.id')->select('user_reviews.*','user_instructor.fullname as name_instructor');
+    }
+
+    public function projects(){
+        return $this->belongsToMany('App\models\Project', 'user_reviews','id_user','id_project');
+    }
 }

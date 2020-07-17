@@ -7,7 +7,7 @@ return [
       "address" => "from@example.com",
       "name" => "Example"
   ),
-  "username" => "blablabla" , //username mailtrap
-  "password" => "blablabla", //password mailtrap
+  "username" => "18722003092269" , //username mailtrap
+  "password" => "d091354c2149ce", //password mailtrap
   "sendmail" => "/usr/sbin/sendmail -bs"
 ];

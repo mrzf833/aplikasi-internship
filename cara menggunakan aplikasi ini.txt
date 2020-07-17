@@ -11,4 +11,7 @@
 11. masuk ke menu users ada pilihan untuk membuat school pertama klik add sekolah, atau lansung add student . school untuk autocomplate dan memakai method firstOrCreate.
 12. create add position, baru create mentor.
 
+
+PERCOBAAN MAIL SAYA MEMAKAI MAILTRAP.IO
 roles 4 admin,student,mentor,instructor.
+bisa melakukan forget password.

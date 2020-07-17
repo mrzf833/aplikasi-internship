@@ -1,0 +1,14 @@
+1. composer install
+2. cp .env.example .env
+3. setting env terlebih dahulu.
+4. setting config/mail.php terlebih dahulu
+5. php artisan key:generate
+6. php artisan migrate --seed
+7. php artisan serve
+8. bukak 127.0.0.1:8000/login
+9. masuk terlebih dahulu sebagai admin
+10. create dulu instructor.
+11. masuk ke menu users ada pilihan untuk membuat school pertama klik add sekolah, atau lansung add student . school untuk autocomplate dan memakai method firstOrCreate.
+12. create add position, baru create mentor.
+
+roles 4 admin,student,mentor,instructor.
